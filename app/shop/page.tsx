@@ -73,7 +73,7 @@ export default function ShopPage() {
                     <p className="text-xs text-ch-grey">{p.unit}</p>
                   </div>
                   <Button
-                    href={`/quote?product=${p.id}`}
+                    href={`/checkout?product=${p.id}`}
                     variant="outline"
                     className="!px-4 !py-2 !text-sm"
                   >
