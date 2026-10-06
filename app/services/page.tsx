@@ -4,7 +4,7 @@ import Section from "@/components/ui/Section";
 export const metadata = {
   title: "Services — The Creative House",
   description:
-    "T-shirt printing, large format printing, business cards, roll-up banners, stickers, flyers, graphics & web design, banners and photography in Haatso, Accra.",
+    "T-shirt printing, large format printing, business cards, roll-up banners, stickers, flyers, graphics & web design, website development, banners and photography in Haatso, Accra.",
 };
 
 const services = [
@@ -62,7 +62,15 @@ const services = [
     name: "Graphics & Web Design",
     tagline: "Design that speaks your brand.",
     description:
-      "Logos, brand identities, social media graphics, posters, and full websites. Our team works with you to build visuals that actually sell your business.",
+      "Logos, brand identities, social media graphics, posters, and web design. Our team works with you to build visuals that actually sell your business.",
+  },
+    {
+    id: "website",
+    icon: "🌐",
+    name: "Website Development",
+    tagline: "Modern websites that bring you customers.",
+    description:
+      "Full website design and development for businesses, from one-page landing sites to full online stores. Mobile-friendly, fast, and built to convert. Includes hosting setup and training.",
   },
   {
     id: "banners",

@@ -10,6 +10,7 @@ const services = [
   { name: "Stickers & Labels",     icon: "✨", href: "/services#stickers" },
   { name: "Flyers",                icon: "📄", href: "/services#flyers" },
   { name: "Graphics & Web Design", icon: "🎨", href: "/services#design" },
+  { name: "Website Development",   icon: "🌐", href: "/services#website" },
   { name: "Banners",               icon: "🚩", href: "/services#banners" },
   { name: "Photography",           icon: "📸", href: "/services#photography" },
 ];
