@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
 import { products } from "@/lib/pricing";
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const params = useSearchParams();
   const productId = params.get("product");
   const product = products.find((p) => p.id === productId);
@@ -44,7 +44,6 @@ export default function CheckoutPage() {
 
       if (!data.ok) throw new Error(data.error || "Payment init failed");
 
-      // Redirect to Paystack's hosted checkout
       window.location.href = data.authorization_url;
     } catch (err) {
       console.error(err);
@@ -73,7 +72,6 @@ export default function CheckoutPage() {
 
   return (
     <>
-      {/* HERO */}
       <section className="gradient-brand text-white">
         <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 text-center">
           <p className="font-semibold tracking-widest text-sm mb-3 text-ch-yellow">
@@ -85,10 +83,8 @@ export default function CheckoutPage() {
         </div>
       </section>
 
-      {/* CONTENT */}
       <Section>
         <div className="max-w-3xl mx-auto grid md:grid-cols-5 gap-8">
-          {/* SUMMARY */}
           <div className="md:col-span-2">
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
               <h2 className="font-semibold text-ch-dark mb-4">
@@ -110,7 +106,6 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          {/* PAYMENT FORM */}
           <div className="md:col-span-3">
             <form
               onSubmit={handlePay}
@@ -186,5 +181,19 @@ export default function CheckoutPage() {
         </div>
       </Section>
     </>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense
+      fallback={
+        <Section>
+          <div className="text-center py-16 text-ch-grey">Loading...</div>
+        </Section>
+      }
+    >
+      <CheckoutContent />
+    </Suspense>
   );
 }

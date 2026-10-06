@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
@@ -19,7 +19,7 @@ const services = [
   "Other / Custom",
 ];
 
-export default function QuotePage() {
+function QuoteContent() {
   const params = useSearchParams();
   const prefillProduct = params.get("product");
   const matchedProduct = products.find((p) => p.id === prefillProduct);
@@ -94,7 +94,6 @@ export default function QuotePage() {
 
   return (
     <>
-      {/* HERO */}
       <section className="gradient-brand text-white">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 text-center">
           <p className="font-semibold tracking-widest text-sm mb-3 text-ch-yellow">
@@ -110,7 +109,6 @@ export default function QuotePage() {
         </div>
       </section>
 
-      {/* FORM */}
       <Section>
         <form
           onSubmit={handleSubmit}
@@ -226,10 +224,7 @@ export default function QuotePage() {
             </p>
           )}
 
-          <Button
-            onClick={() => {}}
-            className="w-full !py-4"
-          >
+          <Button className="w-full !py-4">
             {submitting ? "Sending..." : "Send Request"}
           </Button>
 
@@ -240,5 +235,19 @@ export default function QuotePage() {
         </form>
       </Section>
     </>
+  );
+}
+
+export default function QuotePage() {
+  return (
+    <Suspense
+      fallback={
+        <Section>
+          <div className="text-center py-16 text-ch-grey">Loading...</div>
+        </Section>
+      }
+    >
+      <QuoteContent />
+    </Suspense>
   );
 }
