@@ -17,7 +17,6 @@ const services = [
   "Banners",
   "Photography",
   "Other / Custom",
-  "Website Development",
 ];
 
 function QuoteContent() {

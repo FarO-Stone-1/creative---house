@@ -64,14 +64,7 @@ const services = [
     description:
       "Logos, brand identities, social media graphics, posters, and web design. Our team works with you to build visuals that actually sell your business.",
   },
-    {
-    id: "website",
-    icon: "🌐",
-    name: "Website Development",
-    tagline: "Modern websites that bring you customers.",
-    description:
-      "Full website design and development for businesses, from one-page landing sites to full online stores. Mobile-friendly, fast, and built to convert. Includes hosting setup and training.",
-  },
+    
   {
     id: "banners",
     icon: "🚩",
