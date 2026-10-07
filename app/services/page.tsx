@@ -4,7 +4,7 @@ import Section from "@/components/ui/Section";
 export const metadata = {
   title: "Services — The Creative House",
   description:
-    "T-shirt printing, large format printing, business cards, roll-up banners, stickers, flyers, graphics & web design, website development, banners and photography in Haatso, Accra.",
+    "T-shirt printing, large format printing, business cards, roll-up banners, stickers, flyers, graphics & web design, banners and photography in Haatso, Accra.",
 };
 
 const services = [
@@ -22,7 +22,7 @@ const services = [
     name: "Large Format Printing",
     tagline: "Big prints, bold impact.",
     description:
-      "From outdoor advertising to indoor signage and backdrops, we print on the largest formats with rich, vivid color. Ideal for billboards, wall graphics, event backdrops, and shop signage.",
+      "From outdoor advertising to indoor signage — we print on the largest formats with rich, vivid color. Ideal for billboards, wall graphics, event backdrops, and shop signage.",
   },
   {
     id: "cards",
@@ -64,7 +64,6 @@ const services = [
     description:
       "Logos, brand identities, social media graphics, posters, and web design. Our team works with you to build visuals that actually sell your business.",
   },
-    
   {
     id: "banners",
     icon: "🚩",
@@ -77,7 +76,7 @@ const services = [
     id: "photography",
     icon: "📸",
     name: "Photography",
-    tagline: "Capture the moment professionally.",
+    tagline: "Capture the moment — professionally.",
     description:
       "Event coverage, product photography, and portraits. Clean lighting and professional editing, with fast turnaround for prints and digital use.",
   },
@@ -86,7 +85,6 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      {/* HERO */}
       <section className="gradient-brand text-white">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
           <p className="font-semibold tracking-widest text-sm mb-3 text-ch-yellow">
@@ -94,13 +92,12 @@ export default function ServicesPage() {
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-white/90 max-w-2xl mx-auto">
-            From a single business card to a full brand identity. The Creative
+            From a single business card to a full brand identity — The Creative
             House handles it all.
           </p>
         </div>
       </section>
 
-      {/* SERVICES LIST */}
       <Section>
         <div className="space-y-6">
           {services.map((s) => (
@@ -127,13 +124,12 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* CTA */}
       <Section className="text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Not sure which service you need?
         </h2>
         <p className="text-ch-grey max-w-xl mx-auto mb-8">
-          Tell us what you are trying to do we will recommend the best
+          Tell us what you&apos;re trying to do — we&apos;ll recommend the best
           option.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">

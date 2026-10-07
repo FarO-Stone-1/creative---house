@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -18,9 +19,13 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg gradient-brand flex items-center justify-center text-white font-bold">
-            CH
-          </div>
+          <Image
+            src="/assets/logo/creative-house-logo.jpg"
+            alt="The Creative House"
+            width={40}
+            height={40}
+            className="rounded-lg"
+          />
           <span className="font-semibold text-ch-dark hidden sm:inline">
             The Creative House
           </span>

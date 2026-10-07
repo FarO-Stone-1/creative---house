@@ -1,6 +1,7 @@
 import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
   { name: "T-Shirt Printing",      icon: "👕", href: "/services#tshirts" },
@@ -17,20 +18,23 @@ const services = [
 const galleryPreviews = [
   { name: "Business Cards", image: "/assets/gallery/cards-01.jpg" },
   { name: "Stickers",       image: "/assets/gallery/stickers-01.jpg" },
-  { name: "Banners",        image: "/assets/gallery/banner-01.jpg" },
+  { name: "Roll-Up Banner", image: "/assets/gallery/rollup-01.jpg" },
   { name: "Large Format",   image: "/assets/gallery/large-format-01.jpg" },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
       <section className="gradient-brand text-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center relative z-10">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl mb-6 shadow-lg">
-            <span className="gradient-brand text-transparent bg-clip-text text-3xl font-bold">
-              CH
-            </span>
+          <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-2xl mb-6 shadow-lg p-2">
+            <Image
+              src="/assets/logo/creative-house-logo.jpg"
+              alt="The Creative House"
+              width={80}
+              height={80}
+              className="rounded-xl object-contain"
+            />
           </div>
           <p className="font-semibold tracking-widest text-sm mb-3 text-ch-yellow">
             PRINT. DESIGN. DELIVER.
@@ -46,22 +50,17 @@ export default function Home() {
             <Button href="/quote" variant="yellow">
               Get a Free Quote
             </Button>
-            <Button
-              href="https://wa.me/233501202370"
-              variant="whatsapp"
-            >
+            <Button href="https://wa.me/233501202370" variant="whatsapp">
               Chat on WhatsApp
             </Button>
           </div>
         </div>
       </section>
 
-      {/* GRAND OPENING BANNER */}
       <div className="bg-ch-yellow text-ch-dark text-center py-3 font-medium text-sm">
-        🎉 Grand Opening Special. Visit us at Haatso Total for opening discounts!
+        🎉 Grand Opening Special — Visit us at Haatso Total for opening discounts!
       </div>
 
-      {/* SERVICES */}
       <Section>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
@@ -83,7 +82,6 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* GALLERY PREVIEW */}
       <Section className="bg-white">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Recent Work</h2>
@@ -95,11 +93,14 @@ export default function Home() {
           {galleryPreviews.map((item) => (
             <div
               key={item.name}
-              className="aspect-square bg-ch-light rounded-2xl overflow-hidden relative flex items-end"
+              className="aspect-square bg-ch-light rounded-2xl overflow-hidden relative group"
             >
-              <div className="absolute inset-0 flex items-center justify-center text-ch-grey text-xs text-center px-2">
-                {item.name} image coming soon
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.image}
+                alt={item.name}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
           ))}
         </div>
@@ -110,13 +111,12 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* CTA */}
       <Section className="text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Ready to bring your ideas to life?
         </h2>
         <p className="text-ch-grey max-w-xl mx-auto mb-8">
-          Send us your design or ideas and we&apos;ll handle the rest.
+          Send us your design or idea — we&apos;ll handle the rest.
         </p>
         <Button href="/quote">Get a Free Quote</Button>
       </Section>
