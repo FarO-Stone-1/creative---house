@@ -62,9 +62,14 @@ export default function Footer() {
         © {new Date().getFullYear()} The Creative House. All rights reserved.
         <br />
         Website by{" "}
-        <a href="#" className="text-ch-yellow hover:underline">
-          Your Name
-        </a>
+<a
+  href="https://wa.me/233XXXXXXXXX"
+  className="text-ch-yellow hover:underline"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  FarO_Dev
+</a>
       </div>
     </footer>
   );

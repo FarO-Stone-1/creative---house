@@ -156,7 +156,7 @@ function CheckoutContent() {
                   placeholder="you@example.com"
                 />
                 <p className="text-xs text-ch-grey mt-2">
-                  We&apos;ll send your receipt here.
+                  We will send your receipt here.
                 </p>
               </div>
 
@@ -173,7 +173,7 @@ function CheckoutContent() {
               </Button>
 
               <p className="text-xs text-ch-grey text-center">
-                Secure payment via Paystack. You&apos;ll be redirected to
+                Secure payment via Paystack. You will be redirected to
                 complete your payment.
               </p>
             </form>
