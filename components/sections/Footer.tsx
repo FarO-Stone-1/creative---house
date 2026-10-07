@@ -63,7 +63,7 @@ export default function Footer() {
         <br />
         Website by{" "}
 <a
-  href="https://wa.me/233XXXXXXXXX"
+  href="https://wa.me/233204904397"
   className="text-ch-yellow hover:underline"
   target="_blank"
   rel="noopener noreferrer"
