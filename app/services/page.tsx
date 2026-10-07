@@ -22,7 +22,7 @@ const services = [
     name: "Large Format Printing",
     tagline: "Big prints, bold impact.",
     description:
-      "From outdoor advertising to indoor signage — we print on the largest formats with rich, vivid color. Ideal for billboards, wall graphics, event backdrops, and shop signage.",
+      "From outdoor advertising to indoor signage and backdrops, we print on the largest formats with rich, vivid color. Ideal for billboards, wall graphics, event backdrops, and shop signage.",
   },
   {
     id: "cards",
@@ -140,7 +140,7 @@ export default function ServicesPage() {
           Not sure which service you need?
         </h2>
         <p className="text-ch-grey max-w-xl mx-auto mb-8">
-          Tell us what you&apos;re trying to do — we&apos;ll recommend the best
+          Tell us what you are trying to do we will recommend the best
           option.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
