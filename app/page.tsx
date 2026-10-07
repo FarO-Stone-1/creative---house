@@ -57,10 +57,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="bg-ch-yellow text-ch-dark text-center py-3 font-medium text-sm">
-        🎉 Grand Opening Special — Visit us at Haatso Total for opening discounts!
-      </div>
-
       <Section>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
@@ -86,7 +82,7 @@ export default function Home() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Recent Work</h2>
           <p className="text-ch-grey max-w-xl mx-auto">
-            A glimpse of what we&apos;ve delivered for our clients.
+            A glimpse of what we have delivered for our clients.
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -116,7 +112,7 @@ export default function Home() {
           Ready to bring your ideas to life?
         </h2>
         <p className="text-ch-grey max-w-xl mx-auto mb-8">
-          Send us your design or idea — we&apos;ll handle the rest.
+          Send us your design or idea and we will handle the rest.
         </p>
         <Button href="/quote">Get a Free Quote</Button>
       </Section>

@@ -73,7 +73,7 @@ function QuoteContent() {
             Request Received!
           </h1>
           <p className="text-ch-grey mb-8">
-            We&apos;ll get back to you on {form.phone} within a few hours.
+            We will get back to you on {form.phone} within a few hours.
             For urgent jobs, message us on WhatsApp.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -103,7 +103,7 @@ function QuoteContent() {
             Tell Us What You Need
           </h1>
           <p className="text-white/90 max-w-2xl mx-auto">
-            Fill in the form and we&apos;ll come back to you with a price and
+            Fill in the form and we will come back to you with a price and
             timeline — usually within a few hours.
           </p>
         </div>
@@ -116,7 +116,7 @@ function QuoteContent() {
         >
           {matchedProduct && (
             <div className="bg-ch-light rounded-xl p-4 border border-gray-100">
-              <p className="text-xs text-ch-grey mb-1">You&apos;re enquiring about</p>
+              <p className="text-xs text-ch-grey mb-1">You are enquiring about</p>
               <p className="font-semibold text-ch-dark">{matchedProduct.name}</p>
               <p className="text-ch-pink font-medium">
                 GHS {matchedProduct.price}{" "}
@@ -229,7 +229,7 @@ function QuoteContent() {
           </Button>
 
           <p className="text-xs text-ch-grey text-center">
-            We&apos;ll never share your details. For urgent jobs, WhatsApp us
+            We will never share your details. For urgent jobs, WhatsApp us
             directly.
           </p>
         </form>
