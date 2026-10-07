@@ -23,7 +23,7 @@ export default function GalleryPage() {
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
           <p className="text-white/90 max-w-2xl mx-auto">
-            Real projects, real results. A look at what we&apos;ve created for
+            Real projects, real results. A look at what we have created for
             our clients across Ghana.
           </p>
         </div>
