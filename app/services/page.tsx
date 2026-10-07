@@ -84,7 +84,7 @@ const services = [
     id: "photography",
     icon: "📸",
     name: "Photography",
-    tagline: "Capture the moment — professionally.",
+    tagline: "Capture the moment professionally.",
     description:
       "Event coverage, product photography, and portraits. Clean lighting and professional editing, with fast turnaround for prints and digital use.",
   },
@@ -101,7 +101,7 @@ export default function ServicesPage() {
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-white/90 max-w-2xl mx-auto">
-            From a single business card to a full brand identity — The Creative
+            From a single business card to a full brand identity. The Creative
             House handles it all.
           </p>
         </div>
