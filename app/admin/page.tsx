@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase";
 import Section from "@/components/ui/Section";
+import Button from "@/components/ui/Button";
 
 type Order = {
   id: string;
@@ -27,76 +30,56 @@ type Quote = {
 };
 
 export default function AdminPage() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<any>(null);
   const [orders, setOrders] = useState<Order[]>([]);
   const [quotes, setQuotes] = useState<Quote[]>([]);
   const [tab, setTab] = useState<"orders" | "quotes">("orders");
-  const [loading, setLoading] = useState(true);
-  const [password, setPassword] = useState("");
-  const [authed, setAuthed] = useState(false);
-  const [error, setError] = useState("");
-
-  const loadData = async (pw: string) => {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/admin/data", {
-        headers: { "x-admin-password": pw },
-      });
-      if (!res.ok) throw new Error("Unauthorized");
-      const data = await res.json();
-      setOrders(data.orders || []);
-      setQuotes(data.quotes || []);
-      setAuthed(true);
-      sessionStorage.setItem("admin_pw", pw);
-    } catch {
-      setError("Wrong password or server error.");
-      setAuthed(false);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
-    const saved = sessionStorage.getItem("admin_pw");
-    if (saved) loadData(saved);
-    else setLoading(false);
-  }, []);
+    const checkAuth = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
 
-  if (!authed) {
+      if (!session) {
+        router.replace("/admin/login");
+        return;
+      }
+
+      setUser(session.user);
+      await loadData();
+      setLoading(false);
+    };
+
+    checkAuth();
+  }, [router]);
+
+  const loadData = async () => {
+    const { data, error } = await supabase
+      .from("quotes")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    const { data: ordersData } = await supabase
+      .from("orders")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    setQuotes(data || []);
+    setOrders(ordersData || []);
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.replace("/admin/login");
+  };
+
+  if (loading) {
     return (
       <Section>
-        <div className="max-w-md mx-auto py-16">
-          <h1 className="text-2xl font-bold text-ch-dark mb-6 text-center">
-            Admin Login
-          </h1>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              loadData(password);
-            }}
-            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4"
-          >
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter admin password"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ch-pink focus:outline-none"
-            />
-            {error && (
-              <p className="text-red-600 text-sm bg-red-50 rounded-xl p-3">
-                {error}
-              </p>
-            )}
-            <button
-              type="submit"
-              className="w-full bg-ch-pink text-white py-3 rounded-full font-medium hover:bg-pink-700 transition"
-            >
-              {loading ? "Loading..." : "Enter"}
-            </button>
-          </form>
-        </div>
+        <div className="text-center py-16 text-ch-grey">Loading…</div>
       </Section>
     );
   }
@@ -107,8 +90,14 @@ export default function AdminPage() {
         <div className="max-w-6xl mx-auto px-6 py-12 text-center">
           <h1 className="text-3xl md:text-4xl font-bold">Admin Dashboard</h1>
           <p className="text-white/90 mt-2">
-            Orders and quote requests from the website.
+            Signed in as {user?.email}
           </p>
+          <button
+            onClick={handleLogout}
+            className="mt-4 text-sm bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition"
+          >
+            Log out
+          </button>
         </div>
       </section>
 
@@ -140,8 +129,7 @@ export default function AdminPage() {
           <div className="space-y-4">
             {orders.length === 0 && (
               <p className="text-center text-ch-grey py-12">
-                No paid orders yet. Test payments will appear here once the
-                site is deployed and webhooks are live.
+                No paid orders yet.
               </p>
             )}
             {orders.map((o) => (

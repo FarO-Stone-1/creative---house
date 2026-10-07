@@ -2,9 +2,9 @@ import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
 
 export const metadata = {
-  title: "About — The Creative House",
+  title: "About The Creative House",
   description:
-    "Learn about The Creative House — a printing, design, and branding studio based in Haatso, Accra.",
+    "Learn about The Creative House, printing, design, and branding studio based in Haatso, Accra.",
 };
 
 const values = [
@@ -21,7 +21,7 @@ const values = [
   {
     icon: "🤝",
     title: "Trust",
-    text: "We do what we say — on price, on time, on quality.",
+    text: "We do what we say on price, on time, on quality.",
   },
   {
     icon: "💡",
@@ -71,7 +71,7 @@ export default function AboutPage() {
               <span className="text-ch-pink font-semibold">
                 Print. Design. Deliver.
               </span>{" "}
-              — and do it right, the first time.
+               and do it right, the first time.
             </p>
           </div>
         </div>

@@ -59,7 +59,7 @@ export default function Home() {
 
       {/* GRAND OPENING BANNER */}
       <div className="bg-ch-yellow text-ch-dark text-center py-3 font-medium text-sm">
-        🎉 Grand Opening Special — Visit us at Haatso Total for opening discounts!
+        🎉 Grand Opening Special. Visit us at Haatso Total for opening discounts!
       </div>
 
       {/* SERVICES */}
@@ -99,7 +99,7 @@ export default function Home() {
               className="aspect-square bg-ch-light rounded-2xl overflow-hidden relative flex items-end"
             >
               <div className="absolute inset-0 flex items-center justify-center text-ch-grey text-xs text-center px-2">
-                {item.name} — image coming soon
+                {item.name} image coming soon
               </div>
             </div>
           ))}
@@ -117,7 +117,7 @@ export default function Home() {
           Ready to bring your ideas to life?
         </h2>
         <p className="text-ch-grey max-w-xl mx-auto mb-8">
-          Send us your design or idea — we&apos;ll handle the rest.
+          Send us your design or ideas and we&apos;ll handle the rest.
         </p>
         <Button href="/quote">Get a Free Quote</Button>
       </Section>
